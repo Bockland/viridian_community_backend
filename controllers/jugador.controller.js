@@ -1,7 +1,10 @@
 const Jugador = require('../models/jugador')
+const { connectToDb } = require('../functions/mongo.connection');
 
 const crearJugador = async (req, res) => {
     try {
+
+        await connectToDb();
 
         const { jugador } = req.body;
 
@@ -19,6 +22,11 @@ const crearJugador = async (req, res) => {
 
 const obtenerJugador = async (req, res) => {
     try {
+
+        await connectToDb()
+        .then(() => console.log("BD connect"))
+        .catch((error) => res.status(400).json( {statusCode: 400, message: error.message} ));
+        
         const { query } = req.body;
         const response = await Jugador.find(query);
 
