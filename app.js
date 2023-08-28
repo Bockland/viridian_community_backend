@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes/app.routes');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
@@ -27,6 +27,12 @@ app.use((req,res,next)=>{
 
 app.use('/',routes);
 
-app.listen(process.env.PORT || 5000, () => {
-    console.log(`Example app listening on port ${process.env.PORT || 5000}`)
+
+app.get('/', (req, res) => {
+    console.log('peticion recibida')
+    res.send('que tal watcho')
+})
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 });
