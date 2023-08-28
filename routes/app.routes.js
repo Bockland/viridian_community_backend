@@ -6,6 +6,11 @@ const { crearRol, obtenerRol, eliminarRol, actualizarRol } = require('../control
 
 const router = Router();
 
+router.get('/test', (req, res) => {
+    console.log('peticion recibida')
+    res.send('que tal watcho')
+});
+
 router.post('/user/create', crearUsuario);
 router.post('/user/find', obtenerUsuario);
 router.post('/user/delete', eliminarUsuario);

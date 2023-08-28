@@ -27,12 +27,6 @@ app.use((req,res,next)=>{
 
 app.use('/',routes);
 
-
-app.get('/', (req, res) => {
-    console.log('peticion recibida')
-    res.send('que tal watcho')
-})
-
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 });
