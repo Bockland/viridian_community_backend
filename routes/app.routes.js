@@ -7,8 +7,15 @@ const { crearRol, obtenerRol, eliminarRol, actualizarRol } = require('../control
 const router = Router();
 
 router.get('/test', (req, res) => {
-    console.log('peticion recibida')
-    res.send('que tal watcho')
+    
+    const db = (process.env.MONGO_DB) ? process.env.MONGO_DB : "No se encontro variable"
+    const puerto = (process.env.PORT) ? process.env.PORT : "No se encontro puerto"
+
+    const response = {
+        db, puerto
+    };
+
+    res.send(response)
 });
 
 router.post('/user/create', crearUsuario);
