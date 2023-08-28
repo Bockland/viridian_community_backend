@@ -13,7 +13,7 @@ const crearJugador = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Jugador creado", body: jugador});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -27,7 +27,7 @@ const obtenerJugador = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Jugador encontrados", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -40,7 +40,7 @@ const eliminarJugador = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Jugador eliminado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -53,7 +53,7 @@ const actualizarJugador = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Jugador actualizado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 

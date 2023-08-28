@@ -14,7 +14,7 @@ const crearEquipo = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Equipo creado", body: equipo});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -28,7 +28,7 @@ const obtenerEquipo = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Equipo encontrados", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -41,7 +41,7 @@ const eliminarEquipo = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Equipo eliminado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -54,7 +54,7 @@ const actualizarEquipo = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Equipo actualizado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 

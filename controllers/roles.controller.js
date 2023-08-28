@@ -27,7 +27,7 @@ const obtenerRol = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Rol encontrados", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -40,7 +40,7 @@ const eliminarRol = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Rol eliminado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -53,7 +53,7 @@ const actualizarRol = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Rol actualizado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 

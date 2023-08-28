@@ -13,7 +13,7 @@ const crearUsuario = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Usuario creado", body: usuario});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -28,7 +28,7 @@ const obtenerUsuario = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Usuarios encontrados", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -41,7 +41,7 @@ const eliminarUsuario = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Usuario eliminado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
@@ -54,7 +54,7 @@ const actualizarUsuario = async (req, res) => {
         res.status(200).json({statusCode: 200, message: "Usuario actualizado", body: response});
         
     } catch (error) {
-        res.status(400).json( {statusCode: 400, message: error});
+        res.status(400).json( {statusCode: 400, message: error.message});
     }
 }
 
