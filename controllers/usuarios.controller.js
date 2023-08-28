@@ -19,9 +19,11 @@ const crearUsuario = async (req, res) => {
 
 const obtenerUsuario = async (req, res) => {
     try {
-
+        console.log("Obtener...")
         const { query } = req.body;
         const response = await Usuario.find(query);
+
+        if(response.length == 0) return res.status(400).json( {statusCode: 400, message: "Usuario no encontrado"});
 
         res.status(200).json({statusCode: 200, message: "Usuarios encontrados", body: response});
         
