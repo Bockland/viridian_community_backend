@@ -3,12 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/app.routes');
+var timeout = require('connect-timeout');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
+app.use(timeout('600s'));
 
 mongoose.connect(process.env.MONGO_DB, { 
     useNewUrlParser: true,
