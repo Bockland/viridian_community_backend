@@ -27,6 +27,6 @@ app.use((req,res,next)=>{
 
 app.use('/',routes);
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+app.listen(process.env.PORT || 5000, () => {
+    console.log(`Example app listening on port ${process.env.PORT || 5000}`)
 });
