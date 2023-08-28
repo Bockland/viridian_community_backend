@@ -10,9 +10,7 @@ const port = 3000;
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
 
-const db_connection = "mongodb+srv://viridian:viridian123@cluster0.6iyvc8y.mongodb.net/viridian?retryWrites=true&w=majority";
-
-mongoose.connect(db_connection, { 
+mongoose.connect(process.env.MONGO_DB, { 
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
