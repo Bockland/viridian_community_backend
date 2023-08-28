@@ -1,10 +1,13 @@
 const { Router } = require('express');
+const timeout = require('connect-timeout');
+
 const { crearUsuario, obtenerUsuario, eliminarUsuario, actualizarUsuario } = require('../controllers/usuarios.controller');
 const { crearJugador, obtenerJugador, eliminarJugador, actualizarJugador } = require('../controllers/jugador.controller');
 const { crearEquipo, obtenerEquipo, eliminarEquipo, actualizarEquipo } = require('../controllers/team.controller');
 const { crearRol, obtenerRol, eliminarRol, actualizarRol } = require('../controllers/roles.controller');
 
 const router = Router();
+router.use(timeout('600s'));
 
 router.get('/test', (req, res) => {
     
