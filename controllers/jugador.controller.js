@@ -1,11 +1,8 @@
 const Jugador = require('../models/jugador')
-const { connectToDb } = require('../functions/mongo.connection');
+const mongoose = require('mongoose');
 
 const crearJugador = async (req, res) => {
     try {
-
-        await connectToDb();
-
         const { jugador } = req.body;
 
         const response = await Jugador.find({"name": jugador.name});
@@ -23,9 +20,9 @@ const crearJugador = async (req, res) => {
 const obtenerJugador = async (req, res) => {
     try {
 
-        await connectToDb()
+        await mongoose.connect(process.env.MONGO_DB)
         .then(() => console.log("BD connect"))
-        .catch((error) => res.status(400).json( {statusCode: 400, message: error.message} ));
+        .catch((error) => res.status(405).json( {statusCode: 405, message: "Error de conexion: " + error.message} ));
         
         const { query } = req.body;
         const response = await Jugador.find(query);
